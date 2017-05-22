@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
 before_action :validate_search_key, only: [:search]
+before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destroy, :favorite]
 
    def index
      @products = Product.all
@@ -20,6 +21,23 @@ before_action :validate_search_key, only: [:search]
      end
        redirect_to :back
    end
+
+   def favorite
+       @product = Product.find(params[:id])
+       type = params[:type]
+       if type == "favorite"
+       current_user.favorite_products << @product
+       redirect_to :back
+
+       elsif type == "unfavorite"
+       current_user.favorite_products.delete(@product)
+       redirect_to :back
+
+       else
+       redirect_to :back
+       end
+    end
+
 
    def search
      if @query_string.present?
