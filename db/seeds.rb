@@ -14,3 +14,9 @@ u.password_confirmation = "123456"   # 最少要六码
 
 u.is_admin = true
 u.save
+
+
+Category.connection
+Category.create(name: "课程")
+Category.create(name: "运动器械")
+Category.create(name: "蛋白粉")
