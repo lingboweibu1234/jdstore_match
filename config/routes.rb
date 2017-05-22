@@ -15,8 +15,11 @@ Rails.application.routes.draw do
        end
      end
    end
+     resources :favorite
 
-   resources :products do
+     resources :products do
+     put :favorite, on: :member
+     
 
      collection do
        get :search
@@ -25,7 +28,7 @@ Rails.application.routes.draw do
      member do
        post :add_to_cart
      end
-     
+
    end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
