@@ -36,6 +36,9 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'aasm'
+gem 'ransack'
+gem 'will_paginate-bootstrap'
+gem 'seo_helper'
 gem 'letter_opener', group: :development
 
 
