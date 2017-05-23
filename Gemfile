@@ -39,6 +39,8 @@ gem 'aasm'
 gem 'ransack'
 gem 'will_paginate-bootstrap'
 gem 'seo_helper'
+gem 'carrierwave-qiniu'
+gem 'qiniu-rs'
 gem 'letter_opener', group: :development
 
 
