@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-   root 'products#index'
+   root 'welcome#index'
    devise_for :users
 
    namespace :admin do
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
      resources :products do
      put :favorite, on: :member
-     
+
 
      collection do
        get :search
