@@ -159,12 +159,16 @@
        	</div>
        </div>
 
-<div class="row">
+
+ <div class="row">
   <% @products.each do |product| %>
     <div class="col-xs-6 col-md-3">
       <%= link_to product_path(product) do %>
-
-
+      <% if params[:id].present? %>
+           / <a href="../products=<%= @product.name %>"><%= @product.name %></a>
+           <% elsif params[:category].present? %>
+           / <a href="products?category=<%= @category.category_group.name %>"><%= @category.category_group.name %></a> / <a href="products?category=<%= @category.name %>"><%= @category.name %></a>
+           <% end %>
         <% if product.image.present? %>
           <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
         <% else %>
@@ -172,9 +176,6 @@
         <% end %>
       <% end %>
       <%= product.title %> ￥ <%= product.price %>
-
-
-
     </div>
   <% end %>
 </div>
