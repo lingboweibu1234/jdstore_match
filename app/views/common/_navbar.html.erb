@@ -18,18 +18,15 @@
       				<a href="#" class="dropdown-toggle" data-toggle="dropdown">产品分类<b class="caret"></b></a>
                 <ul class="dropdown-menu dropdown-menu-large row">
         					<li class="col-sm-3">
-        						<ul>
-        							<li class="dropdown-header">课程</li>
-        							<li><a href="/category="课程""><%= link_to products_path do%>课程<% end %></a></li>
-        							<li class="disabled"><a href="#">How to use</a></li>
-        							<li><a href="#">Examples</a></li>
-        							<li class="divider"></li>
-        							<li class="dropdown-header">运动服装</li>
-        							<li><a href="#">Example</a></li>
-        							<li><a href="#">Aligninment options</a></li>
-        							<li><a href="#">Headers</a></li>
-        							<li><a href="#">Disabled menu items</a></li>
-        						</ul>
+                    <ul>
+                    <li> <%= link_to("全部商品", products_path) %></li>
+                    <li class="dropdown-header">哈哈哈</li>
+                    <% Category.all.each do |category| %>
+                    <li>
+                      <%= link_to category.name, products_path(category: category.name), class: "link" %>
+                    </li>
+                    <% end %>
+                    </ul>
         					</li>
         					<li class="col-sm-3">
         						<ul>

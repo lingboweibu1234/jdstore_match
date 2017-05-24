@@ -4,11 +4,12 @@ before_action :validate_search_key, only: [:search]
 before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destroy, :favorite]
 
    def index
-     if params[:category].present?
-       @products = @products.where(category_id: params[:category])
-     else
-       @products = Product.all
-     end
+     if params[:category].blank?
+        @products = Product.all
+        else
+          @category_id = Category.find_by(name: params[:category]).id
+          @products = Product.where(:category_id => @category_id)
+        end
    end
 
 
