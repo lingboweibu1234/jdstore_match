@@ -4,14 +4,13 @@ before_action :validate_search_key, only: [:search]
 before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destroy, :favorite]
 
    def index
-     if params[:category].blank?
-       @products = Product.all
+     if params[:category].present?
+       @products = @products.where(category_id: params[:category])
      else
-       @category_id = Category.find_by(name:params[:category]).id
-       @products = Product.where(:category_id => @category_id).order("created_at DESC")
-    end
-
+       @products = Product.all
+     end
    end
+
 
    def show
      @product = Product.find(params[:id])
