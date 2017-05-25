@@ -13,13 +13,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <!-- 产品分类 -->
+
             <li class="dropdown dropdown-large">
       				<a href="#" class="dropdown-toggle" data-toggle="dropdown">产品分类<b class="caret"></b></a>
-        				<ul class="dropdown-menu dropdown-menu-large row">
+                <ul class="dropdown-menu dropdown-menu-large row">
         					<li class="col-sm-3">
         						<ul>
         							<li class="dropdown-header">课程</li>
-        							<li><a herf="#">Available glyphs</a></li>
+        							<li><a href="/category="课程""><%= link_to products_path do%>课程<% end %></a></li>
         							<li class="disabled"><a href="#">How to use</a></li>
         							<li><a href="#">Examples</a></li>
         							<li class="divider"></li>
@@ -73,6 +74,7 @@
         				</ul>
         			</li>
             </ul>
+
             <!-- 搜索 -->
                <div class="navbar-form navbar-left">
                  <%= form_tag search_products_path, :method => :get do %>
