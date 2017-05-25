@@ -20,3 +20,6 @@ Category.connection
 Category.create(name: "课程")
 Category.create(name: "运动器械")
 Category.create(name: "蛋白粉")
+Category.create(name: "健身零食")
+Category.create(name: "健身服装")
+Category.create(name: "运动鞋")
