@@ -18,18 +18,17 @@ Rails.application.routes.draw do
      resources :favorite
 
      resources :products do
+     resources :reviews
      put :favorite, on: :member
-
-
      collection do
        get :search
      end
-
      member do
        post :add_to_cart
      end
+    end
 
-   end
+    # resources :reviews
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    resources :carts do
