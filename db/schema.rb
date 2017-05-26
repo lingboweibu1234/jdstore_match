@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 20170525081035) do
     t.datetime "updated_at",  null: false
     t.string   "image"
     t.integer  "category_id"
-    t.integer  "user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
