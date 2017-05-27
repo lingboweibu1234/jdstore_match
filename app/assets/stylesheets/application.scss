@@ -212,6 +212,12 @@ html {
 .login-help{
   font-size: 12px;
 }
+//-----登录界面---------
+.panel-default {
+opacity: 0.9;
+margin-top:30px;
+}
+.form-group.last { margin-bottom:0px; }
  //---------footer--------------
  .footer {
    position: absolute;

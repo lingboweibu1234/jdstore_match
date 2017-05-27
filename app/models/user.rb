@@ -15,5 +15,12 @@ class User < ApplicationRecord
   def is_favorite_of?(product)
     favorite_products.include?(product)
   end
+  def display_name
+    if self.username.present?
+      self.username
+    else
+      self.email.split("@").first
+    end
+  end
 
 end
