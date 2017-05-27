@@ -42,6 +42,8 @@ gem 'seo_helper'
 gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
+gem "rails-i18n"
+gem "devise-i18n"
 gem 'letter_opener', group: :development
 
 
