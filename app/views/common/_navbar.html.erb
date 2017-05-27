@@ -17,55 +17,56 @@
             <li class="dropdown dropdown-large">
       				<a href="#" class="dropdown-toggle" data-toggle="dropdown">产品分类<b class="caret"></b></a>
                 <ul class="dropdown-menu dropdown-menu-large row">
-        					<li class="col-sm-3">
-                    <ul>
-                    <li> <%= link_to("全部商品", products_path) %></li>
-                    <li class="dropdown-header">哈哈哈</li>
-                    <% Category.all.each do |category| %>
-                    <li>
-                      <%= link_to category.name, products_path(category: category.name), class: "link" %>
-                    </li>
-                    <% end %>
-                    </ul>
-        					</li>
-        					<li class="col-sm-3">
+        					<!-- <li class="col-sm-3  ">
+                      <ul>
+                      <li> <%= link_to("全部商品", products_path) %></li>
+                      <li class="dropdown-header">哈哈哈</li>
+                      <% Category.all.each do |category| %>
+                      <li>
+                        <%= link_to category.name, products_path(category: category.name), class: "link" %>
+                      </li>
+                      <% end %>
+                      </ul>
+        					</li> -->
+        					<li class="col-sm-4">
         						<ul>
-        							<li class="dropdown-header">蛋白粉</li>
+        							<li class="dropdown-header">训练课程</li>
         							<li></li>
-        							<li><a href="#">Button toolbar</a></li>
-        							<li><a href="#">Sizing</a></li>
-        							<li><a href="#">Nesting</a></li>
-        							<li><a href="#">Vertical variation</a></li>
-        							<li class="divider"></li>
-        							<li class="dropdown-header">Button dropdowns</li>
-        							<li><a href="#">Single button dropdowns</a></li>
+        							<li> <%= link_to("减脂课程", products_path) %></li>
+        							<li> <%= link_to("增肌课程", products_path) %></li>
+        							<li> <%= link_to("塑形训练", products_path) %></li>
+        							<li> <%= link_to("下半身雕塑", products_path) %></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">体态矫正</li>
+        							<li> <%= link_to("骨盆前倾", products_path) %></li>
+        							<li> <%= link_to("驼背", products_path) %></li>
         						</ul>
         					</li>
-        					<li class="col-sm-3">
+        					<li class="col-sm-4">
         						<ul>
         							<li class="dropdown-header">运动器械</li>
-        							<li><a href="#">Basic example</a></li>
-        							<li><a href="#">Sizing</a></li>
-        							<li><a href="#">Checkboxes and radio addons</a></li>
+        							<li> <%= link_to("哑铃", products_path)%></li>
+        							<li> <%= link_to("杠铃", products_path )%></li>
+        							<li> <%= link_to("训练垫", products_path )%></li>
+                      <li> <%= link_to("弹力带", products_path )%></li>
         							<li class="divider"></li>
-        							<li class="dropdown-header">Navs</li>
-        							<li><a href="#">Tabs</a></li>
-        							<li><a href="#">Pills</a></li>
-        							<li><a href="#">Justified</a></li>
+                      <li class="dropdown-header">运动服饰</li>
+                      <li> <%= link_to("上衣", products_path) %></li>
+                      <li> <%= link_to("训练背心", products_path) %></li>
+                      <li> <%= link_to("束口长裤", products_path) %></li>
         						</ul>
         					</li>
-        					<li class="col-sm-3">
+        					<li class="col-sm-4">
         						<ul>
-        							<li class="dropdown-header">Navbar</li>
-        							<li><a href="#">Default navbar</a></li>
-        							<li><a href="#">Buttons</a></li>
-        							<li><a href="#">Text</a></li>
-        							<li><a href="#">Non-nav links</a></li>
-        							<li><a href="#">Component alignment</a></li>
-        							<li><a href="#">Fixed to top</a></li>
-        							<li><a href="#">Fixed to bottom</a></li>
-        							<li><a href="#">Static top</a></li>
-        							<li><a href="#">Inverted navbar</a></li>
+        							<li class="dropdown-header">蛋白粉</li>
+                      <li> <%= link_to("MYPROTEIN", products_path) %></li>
+                      <li> <%= link_to("MUSCLEPHARM", products_path) %></li>
+                      <li> <%= link_to("MuscleTech", products_path) %></li>
+                      <li> <%= link_to("ON", products_path) %></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">健身零食</li>
+                      <li> <%= link_to("PROTEINBROWNIE", products_path) %></li>
+                      <li> <%= link_to("PROTEINCOOKIE", products_path )%></li>
         						</ul>
         					</li>
         				</ul>
