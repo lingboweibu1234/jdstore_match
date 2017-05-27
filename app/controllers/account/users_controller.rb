@@ -10,7 +10,7 @@ class Account::UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       flash[:notice] = "信息更新成功"
-      redirect_to root_path
+      redirect_to :back
     else
       render :edit
     end

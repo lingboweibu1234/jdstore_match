@@ -1,0 +1,54 @@
+<div class="container">
+
+
+<h2>Edit User</h2>
+
+<%= simple_form_for [:account, @user] do |f| %>
+<div>
+  <%= f.input :username, :label =>"用户名" %>
+  <%= f.submit "更改用户名", :class => "btn btn-primary" %>
+</div>
+<% end %>
+<%= form_for @user do |f| %>
+
+   <%= f.fields_for :profile do |ff| %>
+   <div class="form-group">
+     <%= ff.label :birthday %>
+     <%= ff.date_field :birthday, :class => "form-control" %>
+   </div>
+
+   <div class="form-group">
+     <%= ff.label :location %>
+     <%= ff.text_field :location, :class => "form-control" %>
+   </div>
+
+   <div class="form-group">
+     <%= ff.label :education %>
+     <%= ff.text_field :education, :class => "form-control" %>
+   </div>
+
+   <div class="form-group">
+     <%= ff.label :occupation %>
+     <%= ff.text_field :occupation, :class => "form-control" %>
+   </div>
+
+   <div class="form-group">
+     <%= ff.label :bio %>
+     <%= ff.text_area :bio, :class => "form-control" %>
+   </div>
+
+   <div class="form-group">
+     <%= ff.label :specialty %>
+     <%= ff.text_area :specialty, :class => "form-control" %>
+   </div>
+   <% end %>
+   <div class="form-group">
+     <%= f.label :time_zone %>
+     <%= f.time_zone_select :time_zone %>
+   </div>
+  <div class="form-group">
+    <%= f.submit "Save", :class => "btn btn-primary" %>
+  </div>
+
+<% end %>
+</div>

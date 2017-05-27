@@ -1,29 +1,16 @@
-<h2> New Product </h2>
+<div class="container">
+  <div class="col-md-8">
+    <h2> New Product </h2>
 
-<%= simple_form_for [:admin, @product] do |f| %>
+    <%= simple_form_for [:admin, @product] do |f| %>
 
-  <div class="group">
-    <%= f.input :title %>
+    <%= render :partial => "form", :locals => { :f => f } %>
+      <div class="group">
+        <%= f.input :image, as: :file %>
+      </div>
+      <div class="group">
+        <%= f.submit "Submit", data: { disable_with: "Submitting..." } , class: "btn btn-success" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="group">
-    <%= f.input :description %>
-  </div>
-
-  <div class="group">
-    <%= f.input :quantity %>
-  </div>
-
-  <div class="group">
-    <%= f.input :price %>
-  </div>
-  <div class="group">
-    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Category") %>
-  </div>
-  <div class="group">
-    <%= f.input :image, as: :file %>
-  </div>
-
-  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
-
-<% end %>
+</div>
