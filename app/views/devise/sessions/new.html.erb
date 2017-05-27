@@ -1,0 +1,29 @@
+
+ <div class="container">
+
+    <div class="col-md-4 col-centered">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+                      <span class="glyphicon glyphicon-lock"></span> Login
+        </div>
+        <div class="panel-body">
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-groups.last">
+              <%= f.input :email, required: false, autofocus: true %>
+              <%= f.input :password, required: false %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+
+        <div class="form-actions">
+          <div class="col-sm-offset-3 col-sm-9">
+             <button type="submit" class="btn btn-success btn-sm">
+               Sign in</button>
+           </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -8,7 +8,7 @@ before_action :admin_required
     else
       @category_id = Category.find_by(name: params[:category]).id
       @products = Product.where(:category_id => @category_id)
-    end  
+    end
   end
   def new
     @product = Product.new
@@ -16,12 +16,12 @@ before_action :admin_required
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = Product.find_by_friendly_id!(params[:id])
     @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = Product.find_by_friendly_id!(params[:id])
     @product.category_id = params[:category_id]
      if @product.update(product_params)
        redirect_to admin_products_path
@@ -38,8 +38,12 @@ before_action :admin_required
       render :new
     end
   end
+  def destroy
+    @product = Product.find_by_friendly_id!(params[:id])
+    @product.destroy
+    redirect_to admin_products_path
+  end
 
-  
 
   private
 
