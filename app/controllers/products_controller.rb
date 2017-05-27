@@ -14,7 +14,7 @@ before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destr
 
 
    def show
-     @product = Product.find(params[:id])
+     @product = Product.find_by_friendly_id!(params[:id])
    end
 
    def add_to_cart
