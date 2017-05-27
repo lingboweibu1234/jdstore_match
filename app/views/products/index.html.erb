@@ -94,6 +94,23 @@
 
        </div> <!-- End  bootstrap-touch-slider Slider -->
 
+<hr>
+ <div class="row">
+  <% @products.each do |product| %>
+    <div class="col-xs-6 col-md-3">
+      <div class="thumbnail">
+      <%= link_to product_path(product) do %>
+        <% if product.image.present? %>
+          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      <% end %>
+      <%= product.title %> ￥ <%= product.price %>
+    </div>
+    </div>
+  <% end %>
+</div>
 <!-- 推荐产品 -->
        <div class="container-fluid">
        	<div class="row text-left">
@@ -146,33 +163,7 @@
        				Text Caption
        			</p>
        		</div>
-       		<div class="cover-card col-sm-6" style="background: url(http://lorempixel.com/300/200/city/7) no-repeat center top;background-size:cover;">
-       			<p>
-       				Text Caption
-       			</p>
-       		</div>
-       		<div class="cover-card col-sm-6" style="background: url(http://lorempixel.com/300/200/city/8) no-repeat center top;background-size:cover;">
-       			<p>
-       				Text Caption
-       			</p>
+
        		</div>
        	</div>
        </div>
-
-
- <div class="row">
-  <% @products.each do |product| %>
-    <div class="col-xs-6 col-md-3">
-      <div class="thumbnail">
-      <%= link_to product_path(product) do %>
-        <% if product.image.present? %>
-          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-        <% end %>
-      <% end %>
-      <%= product.title %> ￥ <%= product.price %>
-    </div>
-    </div>
-  <% end %>
-</div>

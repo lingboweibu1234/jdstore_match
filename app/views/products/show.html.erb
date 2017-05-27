@@ -92,6 +92,7 @@
        <div class="col-sm-6">
        <% if @product.quantity.present? && @product.quantity > 0 %>
          <%= link_to("加入购物车", add_to_cart_product_path(@product), :method => :post, class: "btn btn-danger") %>
+         <%= link_to("立刻购买", checkout_carts_path, method: :post, class: "btn btn-warning") %>
        <% else %>
          已销售一空，无法购买
        <% end %>
