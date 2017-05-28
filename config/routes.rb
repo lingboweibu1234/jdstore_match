@@ -4,7 +4,12 @@ Rails.application.routes.draw do
    devise_for :users
    resource :user
    namespace :admin do
-     resources :products
+     resources :products do
+       member do
+         post :publish
+         post :hide
+       end
+     end
      resources :categories
       resources :orders do
         member do

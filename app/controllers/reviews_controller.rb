@@ -1,7 +1,7 @@
   class ReviewsController < ApplicationController
     before_action :authenticate_user!, only: [:create, :destroy]
     def create
-      @product = Product.find(params[:product_id])
+      @product = Product.find_by_friendly_id!(params[:product_id])
       @review = @product.reviews.new(review_params)
       @review.user = current_user
 
@@ -13,7 +13,7 @@
     end
 
     def destroy
-      @product = Product.find(params[:product_id])
+      @product = Product.find_by_friendly_id!(params[:product_id])
       @review = Review.find(params[:id])
       @review.destroy
       redirect_to product_path(@product), alert: "You have deleted the review successfully"

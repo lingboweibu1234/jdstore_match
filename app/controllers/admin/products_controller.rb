@@ -43,12 +43,24 @@ before_action :admin_required
     @product.destroy
     redirect_to admin_products_path
   end
+  def publish
+    @product = Product.find_by_friendly_id!(params[:id])
+    @product.publish!
 
+    redirect_to :back
+  end
+
+  def hide
+    @product = Product.find_by_friendly_id!(params[:id])
+    @product.hide!
+    
+    redirect_to :back
+  end
 
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :image, :category_id)
+    params.require(:product).permit(:title, :description, :quantity, :price, :image, :category_id, :is_hidden)
   end
 
 end

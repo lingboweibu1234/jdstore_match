@@ -7,10 +7,18 @@ class Product < ApplicationRecord
   before_validation :generate_friendly_id, :on => :create
 
   def to_param
-   self.friendly_id
+    self.friendly_id
+  end
+  def publish!
+    self.is_hidden = false
+    self.save
   end
 
-protected
+  def hide!
+    self.is_hidden = true
+    self.save
+  end
+  protected
 
   def generate_friendly_id
     self.friendly_id ||= SecureRandom.uuid

@@ -5,16 +5,20 @@ before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destr
 
    def index
      if params[:category].blank?
-        @products = Product.all
+        @products = Product.where(:is_hidden => false)
         else
           @category_id = Category.find_by(name: params[:category]).id
-          @products = Product.where(:category_id => @category_id)
+          @products = Product.where(:category_id => @category_id, :is_hidden => false)
         end
    end
 
 
    def show
      @product = Product.find_by_friendly_id!(params[:id])
+     if @product.is_hidden
+      flash[:warning] = "This product already archived"
+      redirect_to root_path
+    end
    end
 
    def add_to_cart
