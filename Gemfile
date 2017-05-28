@@ -47,6 +47,7 @@ gem "rails-i18n"
 gem "devise-i18n"
 # 单选表单
 gem "select2-rails"
+gem 'will_paginate'
 gem 'letter_opener', group: :development
 
 

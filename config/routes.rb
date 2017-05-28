@@ -4,7 +4,12 @@ Rails.application.routes.draw do
    devise_for :users
    resource :user
    namespace :admin do
-     resources :products
+     resources :products do
+       member do
+         post :publish
+         post :hide
+       end
+     end
      resources :categories
       resources :orders do
         member do
@@ -18,14 +23,15 @@ Rails.application.routes.draw do
      resources :favorite
 
      resources :products do
-     resources :reviews
-     put :favorite, on: :member
-     collection do
-       get :search
-     end
-     member do
-       post :add_to_cart
-     end
+       member do
+         post :add_to_cart
+       end
+       resources :reviews
+       put :favorite, on: :member
+       collection do
+         get :search
+       end
+
     end
 
     # resources :reviews
