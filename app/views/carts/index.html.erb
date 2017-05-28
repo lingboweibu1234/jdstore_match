@@ -1,6 +1,6 @@
 <div class="row">
-
-  <div class="col-md-8 col-centered">
+<div class="container">
+  <div class="col-md-12 col-centered">
 
     <%= link_to("清空购物车", clean_carts_path ,
               method: :delete , class: "pull-right",
@@ -9,10 +9,10 @@
 
     <h2> 购物车 </h2>
 
-    <table class="table table-bordered">
+    <table class="table ">
       <thead>
         <tr>
-          <th colspan="2">商品资讯</th>
+          <th colspan="2">商品信息</th>
           <th>单价</th>
           <th>数量</th>
           <th>操作选项 </th>
@@ -69,3 +69,40 @@
     </div>
   </div>
 </div>
+</div>
+</div>
+<!-- <div class="cart-table-th">
+  <div class="wp">
+    <div class="th th-chk">
+      <div id="J_SelectAll1" class="select-all J_SelectAll">
+        <div class="cart-checkbox">
+          <input class="J_CheckBoxShop" id="J_SelectAllCbx1" type="checkbox" name="select-all" value="true">
+          <label for="J_SelectAllCbx1">
+          勾选购物车内所有商品
+          </label>
+        </div>&nbsp;&nbsp;全选
+      </div>
+    </div>
+    <div class="th th-item">
+      <div class="td-inner">商品信息</div>
+    </div>
+    <div class="th th-info">
+      <div class="td-inner">&nbsp;</div>
+    </div>
+    <div class="th th-price">
+      <div class="td-inner">单价</div>
+    </div>
+    <div class="th th-amount">
+      <div class="td-inner">数量</div>
+    </div>
+    <div class="th th-sum">
+      <div class="td-inner">金额</div>
+    </div>
+    <div class="th th-op">
+      <div class="td-inner">操作</div>
+    </div>
+    <div class="th th-vil hidden">
+      <div class="td-inner">村民信息</div>
+    </div>
+  </div>
+</div> -->

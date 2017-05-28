@@ -42,6 +42,11 @@ gem 'seo_helper'
 gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
+# 多国语言
+gem "rails-i18n"
+gem "devise-i18n"
+# 单选表单
+gem "select2-rails"
 gem 'letter_opener', group: :development
 
 

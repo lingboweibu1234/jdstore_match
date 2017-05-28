@@ -18,7 +18,7 @@ before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destr
    end
 
    def add_to_cart
-     @product = Product.find(params[:id])
+     @product = Product.find_by_friendly_id!(params[:id])
      if !current_cart.products.include?(@product)
        current_cart.add_product_to_cart(@product)
        flash[:notice] = "你已成功将 #{@product.title} 加入购物车"
@@ -29,7 +29,7 @@ before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destr
    end
 
    def favorite
-       @product = Product.find(params[:id])
+       @product = Product.find_by_friendly_id!(params[:id])
        type = params[:type]
        if type == "favorite"
        current_user.favorite_products << @product

@@ -22,5 +22,6 @@ class User < ApplicationRecord
       self.email.split("@").first
     end
   end
-
+  has_one :profile
+  accepts_nested_attributes_for :profile
 end
