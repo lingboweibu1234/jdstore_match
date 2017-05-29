@@ -1,21 +1,20 @@
 <!-- 产品列表 -->
 
     <% @products.each do |product| %>
-      <div class="col-xs-6 col-md-3">
+    <div class="col-sm-6">
+
+
         <div class="thumbnail">
         <%= link_to product_path(product) do %>
           <% if product.image.present? %>
-            <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+            <%= image_tag(product.image.large.url, class: "thumbnail") %>
           <% else %>
             <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
           <% end %>
         <% end %>
         <div class="">
           <%= product.title %>
-        </div>
-        <div class="">
-          ￥ <%= product.price %>
-
+          <ul class="pull-right">
             <%= link_to add_to_cart_product_path(product), :method => :post, class: "btn btn-xs btn-danger" do %>
             <i class="fa fa-shopping-cart"> </i><% end %>
             <% if current_user && current_user.is_favorite_of?(product) %>
@@ -25,10 +24,16 @@
               <%= link_to favorite_product_path(product, type: "favorite"), :method => :put, class: "btn btn-xs btn-warning" do %>
               <i class="fa fa-star" aria-hidden="true"></i><% end %>
             <% end %>
-          
+
+          </ul>
+        </div>
+        <div class="">
+          ￥ <%= product.price %>
 
         </div>
+    
 
       </div>
       </div>
+
     <% end %>
