@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
      resources :products do
        member do
+         post :add_quantity
+         post :remove_quantity
+       end
+       member do
          post :add_to_cart
        end
        resources :reviews
@@ -44,7 +48,12 @@ Rails.application.routes.draw do
      end
    end
 
-   resources :cart_items
+   resources :cart_items do
+     member do
+       post :add_quantity
+       post :remove_quantity
+     end
+   end
 
    resources :orders do
       member do
