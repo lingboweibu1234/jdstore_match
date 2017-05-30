@@ -1,135 +1,78 @@
-<!--原始商品页
-<div class="row">
-  <div class="col-md-6">
-    <% if @product.image.present? %>
-      <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
-    <% else %>
-      <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-    <% end %>
-  </div>
-  <div class="col-md-6">
-    <h2> <%= @product.title %> </h2>
-    <div> 商品分类：<%= @product.category.name %></div>
-    <div style="height:100px;">
-      <p>
-        <%= @product.description %>
-      </p>
-    </div>
-    <div> 数量 : <%= @product.quantity %> </div>
-    <div class="product-price"> ￥ <%= @product.price %> </div>
-    <div class="pull-right">
-    <% if @product.quantity.present? && @product.quantity > 0 %>
-      <%= link_to("加入购物车", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-primary btn-lg btn-danger") %>
-    <% else %>
-      已销售一空，无法购买
-    <% end %>
-   <br/> <br/>
-    <% if current_user && current_user.is_favorite_of?(@product) %>
-      <%= link_to('取消收藏'.html_safe, favorite_product_path(@product, type: "unfavorite"), :method => :put, :class => "btn btn-lg btn-primary") %>
-    <% else %>
-      <%= link_to('添加收藏'.html_safe, favorite_product_path(@product, type: "favorite"), :method => :put, :class => "btn btn-lg btn-primary") %>
-    <% end %>
-
-    </div>
-  </div>
-</div> -->
-
 <!-- 本页面对应的CSS样式表：products.scss -->
-
 <div class="container product-show">
-  <div class="col-md-12 col-centered">
+  <div class="col-md-10 col-centered">
     <div class="row">
     <!-- 主图 -->
-      <div class="col-md-10 col-centered">
-
-        <div class="col-md-5">
-          <div class="panel panel-default">
-            <div class="panel-body">
-            <% if @product.image.present? %>
-              <%= image_tag(@product.image.medium.url, class: "thumbnail img-responsive") %>
-            <% else %>
-              <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail img-responsive") %>
-            <% end %>
-
-                <div class="product-description">
-                  <p>商品描述：</p>
-                  <p>
-                    <%= simple_format(@product.description) %>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    <!-- 商品信息 -->
-    <div class="col-md-5">
       <div class="panel panel-default">
-        <div class="panel-body">
-      <!-- 商品标题 -->
-            <h2 class="product-title"><%= @product.title %></h2>
-
-          <!-- 商品价格 -->
-            <div class="product-price-bgcolor">
-              <div class="product-price">
-                ￥ <%= @product.price %>
-              </div>
+         <div class="panel-body">
+           <div class="col-md-5">
+              <% if @product.image.present? %>
+                <%= image_tag(@product.image.medium.url, class: "thumbnail img-responsive") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail img-responsive") %>
+              <% end %>
             </div>
-          <!-- 商品信息表 -->
-            <div class="row">
-              <div class="col-sm-6">
-                <!-- 商品库存 -->
+            <div class="col-md-5">
+              <h2 class="product-title"><%= @product.title %></h2>
+              <div class="product-quantity">
+                类别： <%= @product.category.name %>
+              </div>
+            <!-- 商品价格 -->
+              <div class="product-price-bgcolor">
+                <div class="product-price">
+                  ￥ <%= @product.price %>
+                </div>
                 <div class="product-quantity">
                   库存量： <%= @product.quantity %>
                 </div>
-                <div class="product-quantity">
-                  类别： <%= @product.category.name%>
+                <div class="add-to-cart-buttom row">
+                  <!-- 加入购物车按钮 -->
+                   <span><%= link_to("加入购物车", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-warning btn-lg") %> </span>
+                   <span>
+                     <% if @product.quantity.present? && @product.quantity > 0 %>
+                       <%= link_to("立刻购买", checkout_carts_path, method: :post, class: "btn btn-lg btn-danger moveright") %>
+                     <% else %>
+                       已销售一空，无法购买
+                     <% end %>
+                   </span>
+
+                   <!-- 收藏商品按钮 -->
+
+                   <!-- <%= link_to("添加收藏 - 人气(26)", "#")%> -->
+                   <span>
+                     <% if current_user && current_user.is_favorite_of?(@product) %>
+                       <%= link_to favorite_product_path(@product, type: "unfavorite"), :method => :put, class: "btn btn-lg btn-warning" do %>
+                       <i class="fa fa-star" aria-hidden="true"></i><% end %>
+                     <% else %>
+                       <%= link_to favorite_product_path(@product, type: "favorite"), :method => :put, class: "btn btn-lg btn-warning" do %>
+                       <i class="fa fa-star-o" aria-hidden="true"></i><% end %>
+                     <% end %>
+                   </span>
                 </div>
-
               </div>
-            </div>
-            <br>
-            
-            <hr>
-
-          <!-- 按钮区域 -->
-           <div class="add-to-cart-buttom row">
-             <!-- 加入购物车按钮 -->
-             <div class="col-sm-4">
-                 <span><%= link_to("加入购物车", add_to_cart_product_path(@product), :method => :post, :class => "btn btn-warning btn-lg") %> </span>
-             </div>
-             <div class="col-sm-4">
-              <span>
-                <% if @product.quantity.present? && @product.quantity > 0 %>
-                  <%= link_to("立刻购买", checkout_carts_path, method: :post, class: "btn btn-lg btn-danger moveright") %>
-                <% else %>
-                  已销售一空，无法购买
-                <% end %>
-              </span>
-            </div>
-              <!-- 收藏商品按钮 -->
-            <div class="col-sm-4 ">
-              <!-- <%= link_to("添加收藏 - 人气(26)", "#")%> -->
-
-              <span>
-                <% if current_user && current_user.is_favorite_of?(@product) %>
-                  <%= link_to favorite_product_path(@product, type: "unfavorite"), :method => :put, class: "btn btn-lg btn-warning" do %>
-                  <i class="fa fa-star" aria-hidden="true"></i><% end %>
-                <% else %>
-                  <%= link_to favorite_product_path(@product, type: "favorite"), :method => :put, class: "btn btn-lg btn-warning" do %>
-                  <i class="fa fa-star-o" aria-hidden="true"></i><% end %>
-                <% end %>
-              </span>
             </div>
           </div>
         </div>
       </div>
-
     </div>
 
+
+    <!-- 商品信息 -->
+    <div class="col-md-10 col-centered">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="product-description">
+              <p>商品描述：</p>
+              <p>
+                <%= simple_format(@product.description) %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="row">
-
       <!-- 商品评论 -->
     <div class="row review">
 

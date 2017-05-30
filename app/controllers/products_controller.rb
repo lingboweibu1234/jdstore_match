@@ -22,15 +22,16 @@ before_filter :authenticate_user! , only: [:new, :edit, :create, :update, :destr
    end
 
    def add_to_cart
+
     @product = Product.find_by_friendly_id!(params[:id])
-    @quantity = params[:quantity].to_i
-    # 判断加入购物车的商品是否超过库存
-    if @quantity > @product.quantity
-      @quantity = @product.quantity
-      flash[:warning] = "您选择的商品数量超过库存，实际加入购物车的商品为#{@quantity}件。"
+    if !current_cart.products.include?(@product)
+      current_cart.add_product_to_cart(@product)
+      flash[:notice] = "你已成功将 #{@product.title} 加入购物车"
+    else
+      flash[:warning] = "你的购物车内已有此物品"
     end
-    current_cart.add(@product, @quantity)
-    redirect_to product_path(@product)
+
+    redirect_to :back
   end
 
    def favorite

@@ -16,65 +16,6 @@
           <ul class="nav navbar-nav">
             <!-- 产品分类 -->
 
-            <li class="dropdown dropdown-large">
-      				<a href="#" class="dropdown-toggle" data-toggle="dropdown">产品分类<b class="caret"></b></a>
-                <ul class="dropdown-menu dropdown-menu-large row">
-        					<!-- <li class="col-sm-3  ">
-                      <ul>
-                      <li> <%= link_to("全部商品", products_path) %></li>
-                      <li class="dropdown-header">哈哈哈</li>
-                      <% Category.all.each do |category| %>
-                      <li>
-                        <%= link_to category.name, products_path(category: category.name), class: "link" %>
-                      </li>
-                      <% end %>
-                      </ul>
-        					</li> -->
-        					<li class="col-sm-4">
-        						<ul>
-        							<li class="dropdown-header">训练课程</li>
-        							<li></li>
-        							<li> <%= link_to "减脂课程", products_path(category: "减脂课程") %></li>
-        							<li> <%= link_to "增肌课程", products_path(category: "增肌课程") %></li>
-        							<li> <%= link_to "塑形训练", products_path(category: "塑形训练") %></li>
-        							<li> <%= link_to "下半身雕塑", products_path(category: "下半身雕塑") %></li>
-                      <li class="divider"></li>
-                      <li class="dropdown-header">体态矫正</li>
-        							<li> <%= link_to "骨盆前倾", products_path(category: "骨盆前倾") %></li>
-        							<li> <%= link_to "驼背", products_path(category: "驼背") %></li>
-        						</ul>
-        					</li>
-        					<li class="col-sm-4">
-        						<ul>
-        							<li class="dropdown-header">运动器械</li>
-        							<li> <%= link_to "哑铃", products_path(category: "哑铃") %></li>
-        							<li> <%= link_to "杠铃", products_path(category: "杠铃") %></li>
-        							<li> <%= link_to "训练垫", products_path(category: "训练垫") %></li>
-                      <li> <%= link_to "弹力带", products_path(category: "弹力带") %></li>
-        							<li class="divider"></li>
-                      <li class="dropdown-header">运动服饰</li>
-                      <li> <%= link_to "上衣", products_path(category: "上衣") %></li>
-                      <li> <%= link_to "训练背心", products_path(category: "训练背心") %></li>
-                      <li> <%= link_to "束口长裤", products_path(category: "束口长裤") %></li>
-        						</ul>
-        					</li>
-        					<li class="col-sm-4">
-        						<ul>
-        							<li class="dropdown-header">蛋白粉</li>
-                      <li> <%= link_to "MYPROTEIN", products_path(category: "MYPROTEIN") %></li>
-                      <li> <%= link_to "MUSCLEPHARM", products_path(category: "MUSCLEPHARM") %></li>
-                      <li> <%= link_to "MuscleTech", products_path(category: "MuscleTech") %></li>
-                      <li> <%= link_to "ON", products_path(category: "ON") %></li>
-                      <li class="divider"></li>
-                      <li class="dropdown-header">健身零食</li>
-                      <li> <%= link_to "PROTEINBROWNIE", products_path(category: "PROTEINBROWNIE") %></li>
-                      <li> <%= link_to "PROTEINCOOKIE",  products_path(category: "PROTEINCOOKIE") %></li>
-        						</ul>
-        					</li>
-        				</ul>
-        			</li>
-            </ul>
-
             <!-- 搜索 -->
                <div class="navbar-form navbar-left">
                  <div class="nabar-search">
@@ -90,6 +31,7 @@
                    <% end %>
                  </div>
                </div>
+             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
