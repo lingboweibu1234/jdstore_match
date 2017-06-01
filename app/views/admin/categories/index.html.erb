@@ -23,10 +23,9 @@
 
         <td>
           <%= link_to("Edit", edit_admin_category_path(category)) %>
-          <%= link_to admin_category_path(category), :method => :delete, :class => "btn btn-xs  btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash-o"></i><% end %>
+          <%= link_to admin_category_path(category), :method => :delete, :class => "btn btn-xs  btn-danger" do %><i class="fa fa-trash-o"></i><% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-    
