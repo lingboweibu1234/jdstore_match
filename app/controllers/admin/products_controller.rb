@@ -41,7 +41,7 @@ before_action :admin_required
   def destroy
     @product = Product.find_by_friendly_id!(params[:id])
     @product.destroy
-    redirect_to admin_products_path
+    redirect_to :back
   end
   def publish
     @product = Product.find_by_friendly_id!(params[:id])
