@@ -21,12 +21,16 @@
 @import "select2";
 @import "select2-bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Roboto);
-
-// 
-// .rage123{
-//   height: 500px;
-//   width: 450px;
-// }
+/*===== Fonts =====*/
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
+// @import url(https://fonts.googleapis.com/css?family=Lobster);
+// @import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900,700,600,500,300,200,100,800);
+@import url(https://fonts.googleapis.com/css?family=Acme);
+.fonts123{
+   font-family: 'Oswald', sans-serif; /* Google字型 */
+   font-size: 16px;
+}
 
 html {
    position: relative;
