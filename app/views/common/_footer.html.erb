@@ -1,7 +1,45 @@
-<div class="footer">
-      <p class="text-center">Copyright ©2017 Job listing
-          <br>Design by 凌波微步 & EAGLE
-          <br><%= link_to "中文版", :controller => controller_name, :action => action_name, :locale => "zh-CN" %> |
-              <%= link_to "English", :controller => controller_name, :action => action_name, :locale => "en" %>
-      </p>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="row">
+          <div class="col-md-2 col-xs-4">
+            <h4><%= t('商品资讯') %></h4>
+            <ul class="list-unstyled">
+              <li><a href="#s"><%= t('最新课程') %></a></li>
+              <li><a href="#s"><%= t('独家推荐') %></a></li>
+              <li><a href="#s"><%= t('商品分类') %></a></li>
+            </ul>
+          </div>
+          <div class="col-md-2 col-xs-4">
+            <h4><%= t('购买须知') %></h4>
+            <ul class="list-unstyled">
+              <li><a href="#s"><%= t('关于运送') %></a></li>
+              <li><a href="#s"><%= t('退货方式') %></a></li>
+              <li><a href="#s"><%= t('常见问题') %></a></li>
+            </ul>
+          </div>
+          <div class="col-md-2 col-xs-4">
+            <h4><%= t('关于我们') %></h4>
+            <ul class="list-unstyled">
+              <li><a href="#s"><%= t('品牌故事') %></a></li>
+              <li><a href="#s"><%= t('媒体报道') %></a></li>
+              <li><a href="#s"><%= t('联络我们') %></a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <br/>
+            <div class="move">
+              <h4><%= image_tag('https://ws4.sinaimg.cn/large/006tKfTcgy1ffztljhx2bj306o06o3yh.jpg') %><%= t('Amazing Fitness') %></h4>
+            </div>
+            <ul class="list-unstyled">
+              <p>Designed By 凌波微步 & EAGLE</p>
+              Copyright ©2017 Amazing Fitness</a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</footer>
