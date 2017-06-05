@@ -2,13 +2,15 @@ Rails.application.routes.draw do
 
    root 'welcome#index'
    get '/home',to:'home#index'
-   devise_for :users
+   devise_for :user
    resource :user
    namespace :admin do
      resources :products do
        member do
          post :publish
          post :hide
+         post :move_up
+         post :move_down
        end
      end
      resources :categories

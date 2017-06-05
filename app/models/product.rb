@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :favorites
   has_many :fans, through: :favorites, source: :user
   before_validation :generate_friendly_id, :on => :create
+  acts_as_list
 
   def to_param
     self.friendly_id
