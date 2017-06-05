@@ -49,6 +49,7 @@ gem "devise-i18n"
 gem "select2-rails"
 gem 'will_paginate'
 gem 'jquery-turbolinks'
+gem 'acts_as_list'
 gem 'letter_opener', group: :development
 
 
@@ -73,4 +74,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'pg'
-end 
+end

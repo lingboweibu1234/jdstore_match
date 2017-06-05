@@ -10,7 +10,7 @@
         <th width="220">Product Pic</th>
         <th>Name</th>
         <th>Price</th>
-        <th colspan="3"> Options</th>
+        <th colspan="5"> Options</th>
       </tr>
     </thead>
     <tbody>
@@ -43,6 +43,8 @@
             <% else %>
               <%= link_to hide_admin_product_path(product), :method => :post,  :class => "btn btn-xs btn-warning" do %><i class="fa fa-eye-slash"></i><% end %>
             <% end %>
+            <%= link_to("上移", move_up_admin_product_path(product), :method => :post) %>
+            <%= link_to("下移", move_down_admin_product_path(product), :method => :post) %>
           </td>
         </tr>
       <% end %>

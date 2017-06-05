@@ -4,10 +4,10 @@ before_action :authenticate_user!
 before_action :admin_required
   def index
     if params[:category].blank?
-      @products = Product.all.paginate(:page => params[:page], :per_page => 5)
+      @products = Product.all.order("position ASC").paginate(:page => params[:page], :per_page => 5)
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @products = Product.where(:category_id => @category_id).paginate(:page => params[:page], :per_page => 5)
+      @products = Product.where(:category_id => @category_id).order("position ASC").paginate(:page => params[:page], :per_page => 5)
     end
   end
   def new
@@ -57,6 +57,17 @@ before_action :admin_required
     redirect_to :back
   end
 
+  def move_up
+    @product = Product.find_by_friendly_id!(params[:id])
+    @product.move_higher
+    redirect_to :back
+  end
+
+  def move_down
+    @product = Product.find_by_friendly_id!(params[:id])
+    @product.move_lower
+    redirect_to :back
+  end
   private
 
   def product_params

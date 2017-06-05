@@ -233,10 +233,11 @@ margin-top:30px;
  //---------footer--------------
  /*===== Footer 页脚 ======*/
  .footer{
-
+   position: absolute;
    height: 100px;
    width: 100%;
-   margin-bottom: 70px;
+   bottom: -220px;
+
    text-align: center;
    margin-top:40px;
    min-height: 200px;
