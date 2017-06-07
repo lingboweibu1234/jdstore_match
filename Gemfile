@@ -50,6 +50,7 @@ gem "select2-rails"
 gem 'will_paginate'
 gem 'jquery-turbolinks'
 gem 'acts_as_list'
+gem "intercom-rails"
 gem 'letter_opener', group: :development
 
 
