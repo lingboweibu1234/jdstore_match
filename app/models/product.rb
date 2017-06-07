@@ -24,5 +24,6 @@ class Product < ApplicationRecord
   def generate_friendly_id
     self.friendly_id ||= SecureRandom.uuid
   end
+  config.action_mailer.default_url_options = { host: "http://young-waters-36000.herokuapp.com" }
 
 end
