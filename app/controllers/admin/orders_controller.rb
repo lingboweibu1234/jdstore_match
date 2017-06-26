@@ -12,9 +12,10 @@ class Admin::OrdersController < ApplicationController
      @data1 = {
        labels: dates,
        datasets: [{
+         label: "#of orders",
          data: dates.map{ |d|
              @orders.where( "created_at >= ? AND created_at <= ?", d.beginning_of_day, d.end_of_day).count},
-         borderColor: "42A5F5"
+         borderColor: "#00ACC1"
          }]
      }
 
